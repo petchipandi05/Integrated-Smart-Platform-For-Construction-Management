@@ -12,7 +12,7 @@ const laborRoutes = require('./routes/labor');
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors({ origin: "*" }));
 dotenv.config();
 app.use(express.json());
 

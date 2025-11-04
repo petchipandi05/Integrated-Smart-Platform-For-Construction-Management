@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Building2 } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { URL } from '../../../url';
 
 function Header() {
   const location = useLocation();
@@ -21,7 +22,7 @@ function Header() {
 
     //Fetch unviewed count if logged in
     if (token) {
-      axios.get('http://localhost:3001/api/projects/client/projects', {
+      axios.get(URL+'/api/projects/client/projects', {
         headers: { Authorization: `Bearer ${token}` },
         params: { clientId: JSON.parse(localStorage.getItem('user')).id },
       }).then(response => {
